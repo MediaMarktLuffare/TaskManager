@@ -14,6 +14,9 @@ class Task extends Component{
                     /> 
                 </h3>
                 <p>{this.props.task.day}</p>
+                <p>
+                    <Link to={`/tasks/${this.props.task.id}`}>View Details</Link>
+                </p>
             </div>
         );
     }

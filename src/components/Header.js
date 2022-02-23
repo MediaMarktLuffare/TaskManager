@@ -1,6 +1,5 @@
 import { Component } from "react";
 import Button from "./Button";
-import { useLocation } from 'react-router-dom'
 
 class Header extends Component{
     render(){

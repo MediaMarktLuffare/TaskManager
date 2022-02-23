@@ -1,17 +1,20 @@
 import { Component } from 'react';
+import {Route, Routes} from "react-router-dom"
 import './App.css';
-import Header from './components/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 import Footer from './components/Footer';
 import About from './components/About';
 import HeaderWrapper from './components/HeaderWrapper';
-import {Route, Routes} from "react-router-dom"
+import ViewTaskWrapper from './components/ViewTaskWrapper';
+
 
 class App extends Component {
   constructor(props){
     super(props);
+    
     this.state = {showAddTask : false, tasks : []}
+
     this.deleteTask = this.deleteTask.bind(this);
     this.toogleReminder = this.toogleReminder.bind(this);
     this.addTask = this.addTask.bind(this);
@@ -41,7 +44,7 @@ class App extends Component {
       body: JSON.stringify(updTask),
     })
     const data = await res.json()
-    this.setState({tasks: this.state.tasks.map(task => task.id === id ? {...task, reminder : data.reminder} : task)})
+    this.setState({tasks: this.state.tasks.map(task => task.id === id ? {...task, reminder : data.reminder} : task)}) //byt ut data => !task.reminder för utan server
   }
 
   addTask(task){
@@ -96,6 +99,7 @@ class App extends Component {
     return(
       <Routes>
         <Route 
+          index
           path='/'
           element={
             <>
@@ -105,6 +109,8 @@ class App extends Component {
           }
         />
         <Route path='/about' element={<About />} />
+        <Route path='/tasks/:id' element={<ViewTaskWrapper />} />
+        <Route path='*' element={<h3>There is nothing here</h3>} />
       </Routes>
     );
   }

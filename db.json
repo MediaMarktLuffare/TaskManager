@@ -29,6 +29,18 @@
       "day": "Feb 23 at 7:40pm",
       "reminder": true,
       "id": 8020
+    },
+    {
+      "text": "Angular Möte",
+      "day": "Feb 24 at 8:00pm",
+      "reminder": false,
+      "id": 8021
+    },
+    {
+      "text": "Testa",
+      "day": "awad",
+      "reminder": false,
+      "id": 8022
     }
   ]
 }

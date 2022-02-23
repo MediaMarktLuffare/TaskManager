@@ -3,7 +3,9 @@ import { Component } from "react";
 class AddTask extends Component{
     constructor(props){
         super(props);
+
         this.state = {text: '', day: '', reminder: false};
+
         this.handleText = this.handleText.bind(this);
         this.handleDay = this.handleDay.bind(this);
         this.handleReminder = this.handleReminder.bind(this);
@@ -29,7 +31,7 @@ class AddTask extends Component{
            alert('Please add a task')
            return;
         }
-        //const id = Math.floor(Math.random()*10000) + 1; //json skapar ett unikt id
+        //const id = Math.floor(Math.random()*10000) + 1; //json skapar ett unikt id, använd för utan server
         this.props.onAdd({text: this.state.text, day: this.state.day, reminder: this.state.reminder}) 
         this.setState({text: '', day: '', reminder: false});
     }
