@@ -19,28 +19,16 @@
       "reminder": true
     },
     {
-      "id": 8019,
-      "text": "Möte med Sergio",
-      "day": "Feb 23 at 6:30am",
-      "reminder": false
-    },
-    {
-      "text": "Möte med Krav Hantering",
-      "day": "Feb 23 at 7:40pm",
-      "reminder": true,
-      "id": 8020
-    },
-    {
-      "text": "Angular Möte",
-      "day": "Feb 24 at 8:00pm",
+      "text": "Skol möte ",
+      "day": "Feb 24 at 2:30am",
       "reminder": false,
-      "id": 8021
+      "id": 7777
     },
     {
-      "text": "Testa",
-      "day": "awad",
+      "text": "Handla mat",
+      "day": "Feb 25th at 3:30pm",
       "reminder": false,
-      "id": 8022
+      "id": 7778
     }
   ]
 }
