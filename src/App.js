@@ -29,7 +29,6 @@ class App extends Component {
     this.setState({tasks: this.state.tasks.filter(task => task.id !== id)})
   }
 
-  //fick inte det o funka med vad vi har lärt oss
   toogleReminder(id){
     let updTask;
     this.safeFetchJson(`http://localhost:5000/tasks/${id}`)
