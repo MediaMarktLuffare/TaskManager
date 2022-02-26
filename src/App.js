@@ -30,22 +30,24 @@ class App extends Component {
   }
 
   //fick inte det o funka med vad vi har lärt oss
-  async toogleReminder(id){
-    
-    const response = await fetch(`http://localhost:5000/tasks/${id}`);
-    const taskToToggle = await response.json();
-    const updTask = {...taskToToggle, reminder: !taskToToggle.reminder};
-    
-    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(updTask),
+  toogleReminder(id){
+    let updTask;
+    this.safeFetchJson(`http://localhost:5000/tasks/${id}`)
+    .then(taskToToggle => {
+      updTask = {...taskToToggle, reminder: !taskToToggle.reminder}
+      return updTask;
     })
-    const data = await res.json()
+    .then(() => fetch(`http://localhost:5000/tasks/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(updTask),
+        })
+      )
+    .then(response => response.json())
 
-    this.setState({tasks: this.state.tasks.map(task => task.id === id ? {...task, reminder : data.reminder} : task)}) //byt ut data => !task.reminder för utan server
+    this.setState({tasks: this.state.tasks.map(task => task.id === id ? {...task, reminder : !task.reminder} : task)}) //fusk lösning, servern uppdateras korrekt dock.
   }
 
   addTask(task){
